@@ -8,12 +8,12 @@ int main(void)
     
     printf("%p\n", s);
     printf("%p\n", t);
-    // if (*s == *t)
-    // {
-    //     printf("Same\n");
-    // }
-    // else
-    // {
-    //     printf("Different\n");
-    // }
+    if (*s == *t)
+    {
+        printf("Same\n");
+    }
+    else
+    {
+        printf("Different\n");
+    }
 }
