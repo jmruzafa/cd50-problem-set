@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+void selection_sort(int list[], int size);
+void swap(int *ap, int *bp);
 int print_array(int size, int array[]);
 
 int main(void)
@@ -14,13 +16,27 @@ int main(void)
     int size = sizeof list / sizeof list[0];
     printf("Initial array:  ");
     print_array(size, list);
-    //order the array
-    int smallest;
-    int tmp;
 
-    printf("progressing....\n");
     //start timer
     clock_t c0 = clock();
+
+    //order the array
+    printf("sorting....\n");
+    selection_sort(list, size);
+    
+    //stop timer
+    clock_t c2 = clock();
+    printf("Ordered array:  ");
+    print_array(size, list);
+    
+    double total_diff_ms = (c2 - c0) * 1000. / CLOCKS_PER_SEC;
+    printf("Sorting took %f ms\n", total_diff_ms);
+}
+
+void selection_sort(int list[], int size)
+{
+    int smallest;
+    
     for (int i = 0; i < size; i++)
     {
         smallest = i;
@@ -32,19 +48,17 @@ int main(void)
                 smallest = j;
             }
         }
-        tmp = list[i];
-        list[i] = list[smallest];
-        list[smallest] = tmp;
+        swap(&list[i], &list[smallest]);
         print_array(size, list);
     }
-    //stop timer
-    clock_t c2 = clock();
-    printf("Ordered array:  ");
-    print_array(size, list);
-    
-    double total_diff_ms = (c2 - c0) * 1000. / CLOCKS_PER_SEC;
-    printf("Sorting took %f ms\n", total_diff_ms);
 }
+void swap(int *ap, int *bp) 
+{ 
+    //swap the pointer to each value and that's all :D
+    int temp = *ap; 
+    *ap = *bp; 
+    *bp = temp; 
+} 
 
 int print_array(int size, int array[])
 {

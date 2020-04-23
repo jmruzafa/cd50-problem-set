@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+void bubble_sorting(int arr[], int size);
 void swap(int *xp, int *yp);
 int print_array(int size, int array[]);
 
@@ -20,17 +21,8 @@ int main(void)
     printf("sorting...\n");
     //start timer
     clock_t c0 = clock();
-    for (int i = 0; i < size-1; i++)
-    {
-        for (int j = 0; j < size-i-1; j++)
-        {
-            if (list[j] > list[j+1])
-            {
-                swap(&list[j], &list[j+1]);
-            }
-        }
-        print_array(size, list);
-    }
+    bubble_sorting(list, size);
+    
     //stop timer
     clock_t c2 = clock();
     printf("Ordered array:  ");
@@ -40,11 +32,28 @@ int main(void)
     printf("Sorting took %f ms\n", total_diff_ms);
 }
 
-void swap(int *xp, int *yp) 
+void bubble_sorting(int arr[], int size)
+{
+    for (int i = 0; i < size-1; i++)
+    {
+        for (int j = 0; j < size-i-1; j++)
+        {
+            if (arr[j] > arr[j+1])
+            {
+                swap(&arr[j], &arr[j+1]);
+            }
+        }
+        print_array(size, arr);
+    }
+
+}
+
+void swap(int *ap, int *bp) 
 { 
-    int temp = *xp; 
-    *xp = *yp; 
-    *yp = temp; 
+    //swap the pointer to each value and that's all :D
+    int temp = *ap; 
+    *ap = *bp; 
+    *bp = temp; 
 } 
 
 int print_array(int size, int array[])
