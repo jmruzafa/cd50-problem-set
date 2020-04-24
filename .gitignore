@@ -1,6 +1,6 @@
 !*.*
 *.dSYM
 coverage/
-src1/
+src*/
 *.json
 .DS_Store
