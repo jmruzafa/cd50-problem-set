@@ -1,6 +1,0 @@
-!*.*
-*.dSYM
-coverage/
-src1/
-*.json
-.DS_Store
