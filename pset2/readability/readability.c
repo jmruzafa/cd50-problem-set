@@ -24,16 +24,16 @@ int main(void)
             letters++;
         }
         //Checks if a character is a space
-        else if (isspace(text[i]) ||text[i] == '\0')
+        else if (isspace(text[i]) || text[i] == '\0')
         {
             words++;
         }
-        else if (text[i] == '.' || text[i] == ' ' || text[i] == '!' || text[i] == '?')
+        else if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
             sentences++;
         }
     }
-    
+    printf("%i letters, %i words, %i sentences\n", letters, words, sentences);
     //calculate L & S of Coleman-Liau index
     //to be precised we must cast the integers into floats first
     float L = (float)letters / (float)words * 100.00;

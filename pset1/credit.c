@@ -15,7 +15,7 @@ int main(void)
         creditcard = get_long("Number: ");
         if(creditcard > 0)
         {
-        error = false;
+            error = false;
         }
     }
     while(error);
@@ -29,7 +29,7 @@ int main(void)
     //extract the control digit
     int sum = digits[length-1];
 
-    //parity to know whic are the digits to multiply
+    //parity to know which are the digits to multiply
     int parity = length % 2;
 
     //iterate through digits of the card to calculate
@@ -39,14 +39,15 @@ int main(void)
         //multiply every other digit by 2
         if (i % 2 == parity)
         {
-        digit = digit * 2;
+            digit = digit * 2;
         }
         if (digit > 9)
         {
-        digit = digit - 9;
+            digit = digit - 9;
         }
         sum += digit;
     }
+    printf ("sum: %i, parity: %i\n", sum, parity);
     //this is another way to calcultate the control digit.
     /*The check digit (x) is obtained by computing the sum of the other digits (third row) then subtracting the units digit from 10 */
     if (sum % 10 == 0)
