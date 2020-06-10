@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.main {
+    padding-top: 1em;
+}
+
+body {
+    background-image: url(img/slide1.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+   
+}
+
+ul {
+    float: right;
+    list-style-type: none;
+    margin-top: 10px;
+    padding-right: 20px;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px 20px;
+    border: 1px solid #ffffff transparent;
+}
+ul li a:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.logo {
+    color: white;
+    font-weight: 800;
+    font-size: large;
+    border: 1px solid #ffffff;
+    width: 215px;
+    float: left;
+    text-decoration: none;
+}
+.logo  a {
+    color: white;
+}
+
+.title {
+    position: relative;
+    top: 7%;
+    width: 100%;
+    text-align: center;  
+}
+
+.title h1 {
+    color: white;
+}
+
+.button {
+    position: relative;
+    top: 15%;
+    left: 40%;
+}
+
+.btn {
+    color: white;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.container {
+    color: white;
+    position: relative;
+    top: 10%;
+    width: 90%;   
+    text-align: justify;
+}
+.form {
+    color: white;
+    
+    width: 90%;   
+    text-align: justify;
+}
+label {
+    width: 200px;
+}
