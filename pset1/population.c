@@ -3,22 +3,22 @@
 
 int main(void) {
     // Prompt for starting population size
-    int start_size;
+    int startSize;
     do {
-        start_size = get_int("Enter starting population size (must be >= 9): ");
-    } while (start_size < 9);
+        startSize = get_int("Enter starting population size (must be >= 9): ");
+    } while (startSize < 9);
 
     // Prompt for ending population size
-    int end_size;
+    int endSize;
     do {
         end_size = get_int("Enter ending population size (must be >= starting size): ");
-    } while (end_size < start_size);
+    } while (endSize < startSize);
 
     // Calculate the number of years required
     int years = 0;
-    int current_size = start_size;
-    while (current_size < end_size) {
-        current_size = current_size + (current_size / 3) - (current_size / 4);
+    int currentSize = endSize;
+    while (currentSize < endSize) {
+        currentSize = current_size + (currentSize / 3) - (currentSize / 4);
         years++;
     }
 
