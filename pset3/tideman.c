@@ -1,11 +1,12 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Max number of candidates
 #define MAX 9
 
-// preferences[i][j] is number of voters who prefer i over j
+// preferences[i][j] is the number of voters who prefer i over j
 int preferences[MAX][MAX];
 
 // locked[i][j] means i is locked in over j
@@ -33,6 +34,8 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool is_cycle(void);
+
 
 int main(int argc, string argv[])
 {
@@ -170,30 +173,71 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    //set first locked pair
-    if (pair_count > 0)
+    for (int i = 0; i < pair_count; i++)
     {
-        locked[pairs[0].winner][pairs[0].loser] = true;
-    }
+        locked[pairs[i].winner][pairs[i].loser] = true;
 
-    for (int i = 1; i < pair_count; i++)
-    {
-        bool cycle = false;
-        for (int j = 0; j < pair_count; j++)
+        // Check for cycles
+        if (is_cycle())
         {
-            if (locked[pairs[i].loser][j])
+            // If a cycle is created, unlock the last pair and break the cycle
+            locked[pairs[i].winner][pairs[i].loser] = false;
+        }
+    }
+}
+
+// Helper function to check for cycles using depth-first search
+bool is_cycle_helper(int current, bool visited[], bool stack[])
+{
+    if (!visited[current])
+    {
+        visited[current] = true;
+        stack[current] = true;
+
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if (locked[current][i])
             {
-                cycle = true;
-                break;
+                if (!visited[i] && is_cycle_helper(i, visited, stack))
+                {
+                    return true;
+                }
+                else if (stack[i])
+                {
+                    return true;
+                }
             }
         }
+    }
 
-        //check if adding this node will create a cycle
-        if (!cycle)
+    stack[current] = false;
+    return false;
+}
+
+// Function to check if there is a cycle in the locked pairs
+bool is_cycle(void)
+{
+    bool visited[MAX];
+    bool stack[MAX];
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        visited[i] = false;
+        stack[i] = false;
+    }
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (!visited[i])
         {
-            locked[pairs[i].winner][pairs[i].loser] = true;
+            if (is_cycle_helper(i, visited, stack))
+            {
+                return true;
+            }
         }
     }
+
+    return false;
 }
 
 // Print the winner of the election
