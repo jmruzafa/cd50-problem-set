@@ -1,3 +1,4 @@
+#include <math.h>
 #include "helpers.h"
 
 // Convert image to grayscale
