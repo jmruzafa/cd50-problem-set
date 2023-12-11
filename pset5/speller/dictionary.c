@@ -1,8 +1,8 @@
 // Implements a dictionary's functionality
 
-#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include <strings.h>
 #include <stdio.h>
 #include <ctype.h>
 
@@ -37,11 +37,11 @@ bool check(const char *word)
     for (int i = 0; i < strlen(word); i++)
     {
         term[i] = tolower(word[i]);
-    } 
+    }
 
     // Get the hash value for a word
     int hash_value = hash(term) % HASH_T_SIZE;
-    
+
     node *dict = hash_table[hash_value];
 
     // Iterate the list
@@ -58,8 +58,8 @@ bool check(const char *word)
     return false;
 }
 
-// Hashes word to a number.. 
-unsigned long hash(const char *word)
+// Hashes word to a number..
+unsigned int hash(const char *word)
 {
     //djb2 hash function from http://www.cse.yorku.ca/~oz/hash.html
     unsigned long hash = 5381;
@@ -77,7 +77,7 @@ bool load(const char *dictionary)
 {
     words_counter = 0;
 
-    // Open dictionary file 
+    // Open dictionary file
     FILE *file = fopen(dictionary, "r");
     if (file == NULL)
     {
