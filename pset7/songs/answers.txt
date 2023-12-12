@@ -1,0 +1,7 @@
+Discussing audio aura we could look at things like Energy, Danceability, Tempo, and even valence.
+High Energy means possibly more positive
+High Valence Might be uplifting
+High Danceability Might be the same
+Low score in these might indicate the opposite.
+
+Despite it,  we have a limitation of 100 songs so they could not be enough to get the real audio aura range that can exist and since music changes over time we may not have enough time to see things rise and fall. It also can happen that low valence, energy or tempo would mean for a user that they instill calm or relaxed mood.
