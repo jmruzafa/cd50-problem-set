@@ -1,5 +1,6 @@
 import cs50
 
+
 def main():
     # ask the user for the text to be parsed
     text = cs50.get_string("Text: ")
@@ -12,12 +13,9 @@ def main():
     sentences = 0
     words = len(text.split(" "))
 
-    
-
-
     # check for the number of letters
     for i in range(0, length):
-        # check if character is alphanumeric 
+        # check if character is alphanumeric
         if text[i].isalnum():
             letters += 1
         # check if character is a space
@@ -45,5 +43,6 @@ def main():
     # grade index below 1
     else:
         print("Before Grade 1")
+
 
 main()
