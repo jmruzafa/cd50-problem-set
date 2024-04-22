@@ -1,0 +1,77 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.quoted {
+    font-weight: bold;
+}
+
+.backHome {
+    margin-top: 2em;
+}
+
+ /* Style for the container div */
+ .stockContainer {
+    text-align: center; /* Center align content */
+}
+
+.cashBalance{
+    font-weight: 600;
+}
+
+
+.totalPortfolio{
+    margin-top: 2em;
+    font-weight: 700;
+}
+
+/* Style for the table */
+table {
+    margin: 0 auto; /* Center horizontally */
+    border-collapse: collapse; /* Collapse border spacing */
+    /*width: 100%; /* Full width */
+}
+
+/* Style for table header */
+th {
+    font-weight: bold; /* Bold font */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+}
+
+/* Style for table header cells */
+th, td {
+    border: 1px solid #ddd; /* Border for all cells */
+    padding: 8px; /* Padding for all cells */
+    text-align: left; /* Align text to the left */
+}
+
+/* Style for table body cells */
+td {
+    border-left: none; /* Remove left border for body cells */
+}
+
+/* Style for first body cell in each row */
+td:first-child {
+    border-left: 1px solid #ddd; /* Add left border for first body cell in each row */
+}

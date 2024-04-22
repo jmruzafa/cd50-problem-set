@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+   <form action="/register" method="post">
+        <label for="username">Username:</label>
+        <input class="form-control mx-auto w-auto" type="text" id="username" name="username"><br>
+        <label for="password">Password:</label>
+        <input  class="form-control mx-auto w-auto" type="password" id="password" name="password"><br>
+        <label for="confirmation">Confirm Password:</label>
+        <input  class="form-control mx-auto w-auto" type="password" id="confirmation" name="confirmation"><br>
+        <button class="btn btn-primary" type="submit">Register</button> <!-- Submit button -->
+    </form>
+    <div class="backHome"><a  href="/">Back to Home</a></div>
+{% endblock %}

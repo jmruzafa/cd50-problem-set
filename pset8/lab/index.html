@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <title>Trivia!</title>
+    <script>
+      function checkAnswer(button) {
+        const buttons = document.querySelectorAll(".answer");
+        buttons.forEach((btn) => (btn.style.backgroundColor = "#0056b3"));
+
+        const correctAnswer = "Paris";
+        const userAnswer = button.textContent.trim();
+        const resultDiv = document.getElementById("mc-result");
+
+        if (userAnswer === correctAnswer) {
+          button.style.backgroundColor = "#28a745";
+          resultDiv.textContent = "Correct!";
+        } else {
+          button.style.backgroundColor = "#dc3545";
+          resultDiv.textContent = "Incorrect";
+        }
+      }
+      function checkFreeResponse() {
+        const userAnswer = document
+          .getElementById("free-response")
+          .value.trim()
+          .toLowerCase();
+        const resultDiv = document.getElementById("fr-result");
+
+        if (userAnswer === "William Shakespeare") {
+          document.getElementById("free-response").style.backgroundColor =
+            "#28a745";
+          resultDiv.textContent = "Correct!";
+        } else {
+          document.getElementById("free-response").style.backgroundColor =
+            "#dc3545";
+          resultDiv.textContent = "Incorrect";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <h2>Part 1: Multiple Choice</h2>
+        <hr />
+        <div class="question">
+          <h3>What is the capital of France?</h3>
+          <button class="answer" onclick="checkAnswer(this)">Paris</button>
+          <button class="answer" onclick="checkAnswer(this)">Berlin</button>
+          <button class="answer" onclick="checkAnswer(this)">Madrid</button>
+        </div>
+        <div id="mc-result"></div>
+      </div>
+
+      <div class="section">
+        <h2>Part 2: Free Response</h2>
+        <hr />
+        <!-- Part 2: Free response question -->
+        <div class="question">
+          <h3>Who wrote the play "Romeo and Juliet"?</h3>
+          <input type="text" id="free-response" />
+          <button onclick="checkFreeResponse()">Confirm</button>
+        </div>
+        <div id="fr-result"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
