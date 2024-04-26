@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Flask Bucket List App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/notes.css">
+    <script src="../static/js/noteapp.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;
+            <li role="presentation"><a href="/new">New Note</a></li> 
+          </ul>
+        </nav>
+      </div>
+
+      
+        <h1>Notes List App</h1>
+     
+        <form class="form-group" action="/update" method="POST">
+        <input type="hidden" name="note_id" value="{{ note['id'] }}">
+        <label for="noteTitle" class="sr-only">Title</label>
+        <input type="text" name="note_title" id="note_title" class="form-control" placeholder="Title" value= "{{ note['title'] }}" required autofocus>
+        <label for="noteText" class="sr-only">Text</label>
+        <input type="text" name="note_text" id="note_text" class="form-control noteText" placeholder="Text" value= "{{ note['text'] }}" required autofocus>
+        <label for="dueDate" class="sr-only">Due Date</label>
+        <input type="date" name="due_date" data-date-format="yyyy-mm-dd" class="form-control" placeholder="Date"
+        min="{{ date }}" value= "{{ note['duedate'] }}" >
+   
+        <button id="btnUpdate" class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+        </form>
+        <script type="text/javascript">
+          $(function () {
+              $('#datepicker').datepicker();
+          });
+        </script>
+
+      <footer class="footer">
+        <p id="company_copyright">&copy; Javier Reyes </p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+

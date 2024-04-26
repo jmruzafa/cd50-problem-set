@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Flask Bucket List App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/js/noteapp.js"></script>
+    <link rel="stylesheet" href="static/css/notes.css">
+   
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;
+            <li role="presentation"><a href="/new">New Note</a></li> 
+          </ul>
+        </nav>
+      </div>
+     
+      <h1>Notes List</h1>
+      <div id="noteList" style="margin-bottom: 10px;">
+        {% block loop %}
+
+         {% for note in notes %}
+              <li><span style="font-weight: 800;"> {{ note['title'] }} </span> <span style="font-size:x-small; vertical-align: middle;">(created: {{ note['created'] }})</span> <br/>
+                 {{ note['text'] }}. <span style="font-size:smaller;">
+                 {% if note['duedate']|length %}Due to {{note['duedate']}}
+                 {% else %}No due date{% endif %}
+                </span>
+                <a href="edit/{{note['id']}}" ><img src="static/img/edit.png" style="max-width: 12px;"/></a> | <a href="delete/{{note['id']}}" id="delBtn" ><img src="static/img/remove.png" style="max-width: 12px;" /></a></li>
+
+              {% endfor %}
+         {% endblock %}
+      </div>
+  
+      <a href="/new">Create a new note</a>
+
+    <footer class="footer">
+      <p id="company_copyright">&copy; Javier Reyes </p>
+    </footer>
+    <script lang="javascript">
+      $(document).ready(function(){
+        $('#noteList li:nth-child(odd)').addClass('alternate');
+      });
+    </script>
+
+    </div>
+  </body>
+</html>
+

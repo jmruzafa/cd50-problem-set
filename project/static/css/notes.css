@@ -1,0 +1,13 @@
+
+ #noteList > li { 
+  background-color:#c6dce0;
+  list-style-type: none;
+  padding: 0 10px 0 10px;
+
+}
+#noteList > li.alternate {
+  background-color:#70d3e9;
+}
+.noteText {
+  height: 7em important!;
+}

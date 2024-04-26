@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Flask Bucket List App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/js/noteapp.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp; 
+          </ul>
+        </nav>
+      </div>
+
+      
+        <h2>Result</h2>
+        
+        {% if message %}
+          <h3 >{{message}}</h3>
+        {% endif %}
+        <a href="/">return home</a>
+       
+
+        </form>
+        
+
+      <footer class="footer">
+        <p id="company_copyright">&copy; Javier Reyes </p>
+      </footer>
+
+    </div>
+  </body>
+</html>
+
